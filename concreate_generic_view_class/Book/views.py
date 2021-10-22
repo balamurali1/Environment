@@ -5,30 +5,30 @@ from rest_framework.generics import ListAPIView,CreateAPIView,RetrieveAPIView,Up
 
 # Create your views here.
 
-######### ListAPIView ###########
+######### ListAPIView-->GET() ###########
 class StudentList(ListAPIView):
 	queryset = Student.objects.all()
 	serializer_class=StudentSerializer
 
 
-######## CreateAPIView##########
+######## CreateAPIView --> POST()##########
 class Studentcreate(CreateAPIView):
 	queryset = Student.objects.all()
 	serializer_class=StudentSerializer
 
 
-####### RetrieveAPIView ###########
+####### RetrieveAPIView---> GET() ###########
 class Studentretrieve(RetrieveAPIView):
 	queryset = Student.objects.all()
 	serializer_class=StudentSerializer
 
-######### UpdateAPIView ############
+######### UpdateAPIView -->put() and patch() ############
 
 class Studentupdate(UpdateAPIView):
 	queryset = Student.objects.all()
 	serializer_class=StudentSerializer
 
-######### DestroyAPIView ###########
+######### DestroyAPIView---> delete() ###########
 
 class Studentdelete(DestroyAPIView):
 	queryset = Student.objects.all()
