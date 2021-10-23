@@ -14,11 +14,15 @@ class Studentviewset(viewsets.ModelViewSet):
 	queryset = Student.objects.all() #this is queryset
 	serializer_class=Studentserializer #queryset ni JSON format lo ki conver chesthundi serializers.py file.. 
 	authentication_classes = [SessionAuthentication]
-	#permission_classes = [IsAuthenticated]
+	#permission_classes = [IsAuthenticated] #permission unte chalu..
 	permission_classes = [IsAdminUser] 
 	"""
 	IsAdminUser anedi permission evariki esthundi ante cmd lo 'createsuperuser' lo user ni create 
 	chesthamu chudu variki esthundi,virine superuser antaru...virine Admin antaru.
+
+	innka unsers kavali anukunte direct ga django.admin site ki velli create chesukovadame..kanni
+	villanu superusers ani annaru..okay, okavella villu kuda superuser tho pattu ga anni chudali,handle cheyali ante
+	appudu 'staff' dhagara 'tick' mark pettali villaku okay na..
 	"""
 
 
