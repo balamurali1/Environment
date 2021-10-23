@@ -14,10 +14,14 @@ class Studentviewset(viewsets.ViewSet):
 		return Response(serializer.data)
 
 
-	def retrieve(self,request,pk=None):  #retrieve ante display() ani,Use GET()
-		id=pk
+	"""
+	#retrieve ante display() ani,Use GET()
+	pk=None anedi prasthuthaniki matrame,yepudaithey id ni url lo pass chesthe appudu ikkada ku vasthundi EX:pk=5 ani ela internal ga vachi untundi]
+	"""	
+	def retrieve(self,request,pk=None):  
+		id=pk #ex: ikkada  ela id=5 ani internal ga vasthundi
 		if id is not None:  # True auvthundi..
-			queryset = Student.objects.get(id=id)
+			queryset = Student.objects.get(id=id) #ikkada left side unna id vachesi column name ani artham,right side unna id lo 5 store aiye untundi,id=5 ani vasthundi internal ga.
 			serializer= Studentserializer(queryset)
 			return Response(serializer.data)	
 			'''
@@ -26,7 +30,7 @@ class Studentviewset(viewsets.ViewSet):
 			'''
 
 	
-	def update(self,request,pk): #put() use cheai,diniki patch work kavadam ledu
+	def update(self,request,pk): #mundu ga GET() chesi modify chesi,put() use cheai,diniki patch work kavadam ledu
 		id=pk
 		queryset = Student.objects.get(pk=id)
 		serializer = Studentserializer(queryset,data=request.data)
