@@ -16,3 +16,14 @@ class Studentviewset(viewsets.ModelViewSet):
 Global lo (sttring.py lost lo rashanu..) rasthe authentication,permissions, views.py lo rase prathi
 class ki Global lo  unde authentication,permissions apply auvthai..
 """
+
+"""
+ModelViewSet lo ne anni APIs actions untai... it is  short cut code..
+
+APIs actions means like .list()-->GET(),
+.crate()-->POST(),
+.update()-->first GET() chesi modify chesi malli send chesetappudu PUT()and PATCH() vadu..,
+.retrieve()-->GET(),retrieve means display particular record(indtance)(objects),
+.destroy()-->DELETE() 
+	evi anni kuda ModelViewSet lo ne untai..
+"""
