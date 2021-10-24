@@ -11,9 +11,14 @@ from rest_framework.response import Response
 def Booklist(request):  #function lo by default ga 'request' untundi..okay..
 	booksobj = BooksModel.objects.all() #This is queryset
 	serializer = BookSerializer(booksobj,many=True) #many=True,ante objects(records) ekkuva untai kabbati many=True ani pettali.
-	return Response(serializer.data) #serializer ni manamu 'return Response' ga thisukunnamu..
-	#serializer.data ante, serializer lo unde data(JSON/XML) ani artham
+	return Response(serializer.data) #serializer.data ni manamu 'return Response' ga thisukunnamu..
+	"""
+	serializer.data(sapparet ga idi oka variable ani artham geekyshows lo chepinadu..) ante, 
+	serializer lo unde data(JSON/XML) clients ki "Front end" kanapadali ante serialize.data(variable ni)use chesthamu ani artham..
 
+	response means nothing but clients ki "Front end" kanipinchede response antaru..
+	dinine HTTPResponse ani kuda antaru..
+	"""
 
 ##################### create ################
 
