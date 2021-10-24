@@ -42,7 +42,8 @@ def update_Book(request,id):  #function lo by default ga 'request' untundi..okay
 	return Response(serializer.data) 
 
 '''
-instance ante (object) ani artham	
+instance (Old data stored in Database(Geekyshows chepinnadu..))ante little bit changes cheshaka haa
+old data ne malli database lo ki store cheyadam ani artham..	
 '''
 ################### Delete #################
 
