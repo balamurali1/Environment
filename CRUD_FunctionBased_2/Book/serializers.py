@@ -1,14 +1,29 @@
 from rest_framework import serializers
 from . models import Student
 
+
+#validators(first Priority)
+
+def start_with_r(value): #geekyshows lo chusha nu.. video name validation(30:00) 
+	if value[0].lower() != 'r':
+		raise serializers.ValidationError('Name should be start with R')
+
+"""
 class StudentSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Student
 		fields = "__all__"
+"""
+#(OR)
+
+class StudentSerializer(serializers.Serializer):
+	name = serializers.CharField(max_length=50, validators=[start_with_r])
+	roll = serializers.IntegerField()
+	city = serializers.CharField(max_length=50)
+	
 
 
-
-
+#(Second Priority)
 #Custom "Field level" Validations(Geekyshows lo anthanu rasi na code veru nenu rasina code veru kani vailidations matramu antani rasina vidhanam batti rashanu..)
 
 	def validate_roll(self,value):
@@ -18,10 +33,12 @@ class StudentSerializer(serializers.ModelSerializer):
 
 
 
+
+#(Third Priority)
 #Object Level Validations
 
 	#Diniki post() method use cheai..
-	def validate(self,data):
+	def validate(self,data):  #ela (True and False=False)code rasinappudu matrame (third Priority) pani cheyadam ledu..
 		nm = data.get('name')
 		ct = data.get('city')
 
@@ -39,7 +56,7 @@ class StudentSerializer(serializers.ModelSerializer):
 		"""
 
 
-	# def validate(self,data):
+	# def validate(self,data): #ela (True and True=True)code rasinappudu matrame (third Priority) pani chesthundi
 	# 	nm = data.get('name')
 	# 	ct = data.get('city')
 															 
@@ -49,7 +66,8 @@ class StudentSerializer(serializers.ModelSerializer):
 
 		"""
 		#True and True=True  (data create kadu database lo okay na..,Error Chupisthundi..)
-		#post(create) chesetappudu postman lo "Hyd" capital lo esthey niku error artham auvthundi..
+		
+			#post(create) chesetappudu postman lo "Hyd" capital lo esthey niku error artham auvthundi..
 		    {
         		"id": 11,
         		"name": "rohit", #Ikkada rasthunna vati adharangane get() method thisukuntundi
