@@ -7,7 +7,8 @@ class StudentSerializer(serializers.ModelSerializer):
 		fields = "__all__"
 
 
-	
+
+#Custom validations ni serializers.py lo ne cheshanu...	
 	
 	def validate(self, data): #data is a python "dictionary" of field vales, #post,update chesthe error ravali ani condition echa..
 		if data['roll'] < 101:
