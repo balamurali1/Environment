@@ -14,8 +14,7 @@ class Studentviewset(viewsets.ModelViewSet):
 	queryset = Student.objects.all() #this is queryset
 	serializer_class=Studentserializer #queryset ni JSON format lo ki conver chesthundi serializers.py file.. 
 	authentication_classes = [SessionAuthentication]
-	permission_classes = [MyPermission] #idi credentials(username/password) matrame aduguthundi,anthey kakunda idi staff lo tick mark unna vallani kuda allow chesthundi..
-	
+	permission_classes = [MyPermission] 
 
 
 """
