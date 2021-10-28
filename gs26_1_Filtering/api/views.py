@@ -17,4 +17,4 @@ class StudentList(ListAPIView):
 
 
 #filers ni global lo set cheshanu(settings.py lo last lo)
-#first you will install, pip install django-filter	
+#first you will install, pip install django-filter==2.4.0	
